@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MOVIEFLIX</title>
+  <!-- Favicon -->
+  <link rel="icon" href="/images/favicon.ico">
+  <!-- 브라우저 스타일 초기화 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
+  <!--Google Fonts - Bebas Neue  -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+  <!--Google Fonts - Noto Sans KR -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@700&display=swap" rel="stylesheet">
+  <!-- 스타일 연결 -->
+  <link rel="stylesheet" href="main.css" />
+  <script type="module" defer src="main.js"></script>
+</head>
+<body>
+  <div class="wrap">
+    <div class="header">
+      <div class="header--main">
+        <div class="header--title"></div>
+        <p class="header--maintext">원하는 영화를 언제나, 마음대로</p>
+      </div>    
+      <div class="search">
+        <select class="search--select">All</select>
+        <input class="search--input" type="text" placeholder="Search for the movie you want" />
+        <button class="search--button" type="submit">Search</button>
+        <p class="search--result"></p>
+      </div>
+    </div>
+    <div class="loading">
+      <div class="loading1"></div>
+      <div class="loading2"></div>
+      <div class="loading3"></div>
+      <div class="loading4"></div>
+      <div class="loading5"></div>
+    </div>
+    <div class="movies"></div>
+  </div>
+  
+</body>
+</html>
