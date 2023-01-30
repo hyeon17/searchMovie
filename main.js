@@ -5,6 +5,11 @@ const totalresultEl = document.querySelector(".search--result");
 const years_selectEl = document.querySelector(".search--select");
 const loadingEl = document.querySelector(".loading");
 
+// 즉시 실행 함수
+(async () => {
+  // 로딩 화면
+  loadingEl.style.display = "none";
+})();
 
 // 영화 정보 초기값
 const searchMovie = {
@@ -14,12 +19,26 @@ const searchMovie = {
   isFirst: false,
 };
 
-// 검색창에 입력 시 영화 검색
-inputEl.addEventListener("input", function () {
-  searchMovie.title = inputEl.value;
+// 연도창 클릭 시 너비 변경 및 연도 값 저장
+years_selectEl.addEventListener("click", function () {
+  inputEl.style.width = "40%";
   searchMovie.year = years_selectEl.value;
 });
 
+// 검색창에 입력 시 영화 검색
+inputEl.addEventListener("input", function () {
+  searchMovie.title = inputEl.value;
+});
+
+// 입력 후 엔터시 생성
+inputEl.addEventListener("keydown", (event) => {
+  // event.isComposing는 한글 입력시 필수로 넣어야 함
+  if (event.key === "Enter") {
+    buttonEl.click();
+  }
+});
+
+// 검색 버튼 클릭 시 영화 검색
 buttonEl.addEventListener("click", function () {
   getMovies();
 });
@@ -33,7 +52,6 @@ for (let i = thisYear; i >= thisYear - 50; i--) {
   years_selectEl.append(optionEl);
 }
 
-
 // 영화 api 호출
 async function getMovies() {
   // 영화 정보 초기화
@@ -45,9 +63,13 @@ async function getMovies() {
   const res = await fetch(`https://omdbapi.com/?apikey=7035c60c${s}${y}${p}`);
   const json = await res.json();
   if (json.Response === "True") {
-    const { Search: movies, totalResults } = json;
-    totalCount(totalResults);
-    renderMovies(movies);
+    loadingEl.style.display = "flex";
+    setTimeout(() => {
+      loadingEl.style.display = "none";
+      const { Search: movies, totalResults } = json;
+      totalCount(totalResults);
+      renderMovies(movies);
+    }, 1000);
   }
   // 검색 결과 없을 때
   if (json.Error) {
@@ -66,9 +88,13 @@ function renderMovies(movies) {
   searchMovie.isFirst = true;
   const liEls = movies.map(function (movie) {
     const liEl = document.createElement("li");
+    liEl.classList.add("movielist");
     const titleEl = document.createElement("h2");
+    titleEl.classList.add("movielist--title");
     const posterEl = document.createElement("img");
+    posterEl.classList.add("movielist--poster");
     const yearEl = document.createElement("p");
+    yearEl.classList.add("movielist--year");
 
     titleEl.textContent = movie.Title;
     posterEl.src = movie.Poster;
@@ -77,9 +103,26 @@ function renderMovies(movies) {
 
     return liEl;
   });
+  if (searchMovie.isFirst) {
+    moviesEl.innerHTML = "";
+  }
   moviesEl.append(...liEls);
 }
 
+// 총 영화 개수 출력
 function totalCount(totalResults) {
-  totalresultEl.innerHTML = `총&nbsp;<span style="color:red">${totalResults}</span>개의 영화를 찾았습니다.`;
+  totalresultEl.innerHTML = `<span style="color:red">${searchMovie.title}</span>에 대해 총&nbsp;<span style="color:red">${totalResults}</span>개의 영화를 찾았습니다.`;
 }
+
+// 무한 스크롤
+window.addEventListener("scroll", function () {
+  if (
+    (window.innerHeight + window.scrollY) >= document.body.offsetHeight
+  ) {
+    if (searchMovie.isFirst) {
+      loadingEl.style.display = "flex";
+      searchMovie.page ++;
+      getMovies();
+    }
+  }
+});
