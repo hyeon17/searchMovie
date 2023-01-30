@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,19 +15,24 @@
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
   <!--Google Fonts - Noto Sans KR -->
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@700&display=swap" rel="stylesheet">
+
   <!-- 스타일 연결 -->
   <link rel="stylesheet" href="main.css" />
   <script type="module" defer src="main.js"></script>
 </head>
+
 <body>
   <div class="wrap">
+
     <div class="header">
       <div class="header--main">
         <div class="header--title"></div>
         <p class="header--maintext">원하는 영화를 언제나, 마음대로</p>
-      </div>    
+      </div>
       <div class="search">
-        <select class="search--select">All</select>
+        <select class="search--select">
+          <option value="all">All</option>
+        </select>
         <input class="search--input" type="text" placeholder="Search for the movie you want" />
         <button class="search--button" type="submit">Search</button>
         <p class="search--result"></p>
@@ -39,8 +45,8 @@
       <div class="loading4"></div>
       <div class="loading5"></div>
     </div>
-    <div class="movies"></div>
   </div>
-  
+  <div class="movies"></div>
 </body>
+
 </html>
