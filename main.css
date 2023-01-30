@@ -1,7 +1,8 @@
-html{
+html {
   min-width: 1000px;
   background-color: #141414;
 }
+
 @keyframes scaling {
 
   0%,
@@ -19,10 +20,6 @@ html{
     transform: scale(1);
     background-color: #0761FF;
   }
-}
-
-.wrap {
-  height: 100vh;
 }
 
 .wrap .header {
@@ -53,7 +50,7 @@ html{
   font-weight: bold;
 }
 
-.wrap .header .search{
+.wrap .header .search {
   position: absolute;
   display: flex;
   width: 100%;
@@ -62,11 +59,14 @@ html{
   height: 15%;
   justify-content: center;
 }
-.wrap .header .search .search--select{
+
+.wrap .header .search .search--select {
   border: 2px solid red;
   border-radius: 15px;
-  width: 8%;
+  width: 5%;
   margin-right: 10px;
+  text-align: center;
+  font-size: 15px;
 }
 
 .wrap .header .search .search--input {
@@ -75,11 +75,12 @@ html{
   width: 15%;
   margin-right: 30px;
   transition: 1.0s;
+  font-size: 15px;
   cursor: pointer;
 }
 
 .wrap .header .search .search--input:focus,
-.wrap .header .search .search--input:hover{
+.wrap .header .search .search--input:hover {
   width: 40%;
 }
 
@@ -103,13 +104,13 @@ html{
   font-size: 30px;
   font-weight: bold;
 }
-/* .wrap .loading {
+
+.wrap .loading {
   opacity: 0.7;
   position: fixed;
   display: flex;
   z-index: 1;
   width: 100%;
-  height: 100px;
   justify-content: center;
   align-items: center;
 }
@@ -147,15 +148,16 @@ html{
 
 .wrap .loading .loading5 {
   animation-delay: 0.8s;
-} */
-
-.wrap .movies{
-  display: flex;
-  flex-wrap: wrap;
-  width: 90%;
-  margin: 50px auto;
-  height: 100%;
-  background-color: aliceblue;
 }
-  
 
+.movies {
+  background-color: aliceblue;
+  width: 100%;
+}
+
+.movies .movielist {
+  border: 2px solid red;
+  flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+}
