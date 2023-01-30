@@ -1,5 +1,5 @@
 # MOVIEFLIX
-- 데모 사이트:[MOVIEFLIX]()
+- 데모 사이트:[MOVIEFLIX](https://courageous-parfait-b80164.netlify.app)
 - 사용 언어: HTML, CSS, Javascript
 - 목표 : OMDb API를 활용해 영화 검색 기능 구현
 
