@@ -1,15 +1,11 @@
 import Header from "@/components/Header"
-import Movie from "@/components/Movie"
-import Search from "@/components/Search"
-
+import * as S from '@/styles/Main.styles';
 function MainPage() {
   return (
-    <>
+    <S.MainContainer>
       <Header />
-      <Search />
-      <Movie/>
-    </>
-  )
+    </S.MainContainer>
+  );
 }
 
 export default MainPage;
