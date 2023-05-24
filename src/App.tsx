@@ -1,9 +1,10 @@
+import MainPage from "./pages"
 
 function App() {
 
   return (
     <>
-      <h1>React TypeScript Starter</h1>
+      <MainPage />
     </>
   )
 }
