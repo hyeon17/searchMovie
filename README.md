@@ -1,17 +1,33 @@
-# 🎬 영화 검색
+# 프로젝트 소개
+## 1. 프로젝트 개요
+### 링크
+[searchMovie]()
 
-- 과제 기한:
-  - 프로젝트 기간: 2023-05-24 ~ ing
-- 내용:
-  - 주어진 API를 활용해 '[완성 예시](https://stupefied-hodgkin-d9d350.netlify.app/)' 처럼 자유롭게 영화 검색 기능을 구현
+### 설명
+> 영화 제목과 연도를 검색하면 해당하는 영화의 정보를 볼 수 있는 사이트 입니다.
 
-## 요구사항
-### ❗ 필수
-- [ ] 영화 제목으로 검색 가능하고 검색된 결과의 영화 목록이 출력돼야 합니다.
-- [ ] jQuery, React, Vue 등 JS 라이브러리와 프레임워크는 사용하지 않아야 합니다.
-- [ ] 스타일(CSS) 라이브러리나 프레임워크 사용은 자유입니다.
+- 작업 인원: [장현준](https://github.com/hyeon17)
+- 작업 기간: 2023-05-24 ~ ing
 
-### ❔ 선택
+### 프로젝트 실행 방법
+```
+1. $ git clone https://github.com/hyeon17/searchMovie.git
+2. $ cd searchMovie
+3. $ yarn
+4. root 경로에 .env 파일 생성 후, 관련 정보 입력
+5. $ yarn dev
+```
+## 2. 프로젝트 스택
+메인 라이브러리 및 프레임워크: React
+상태 관리: Zustand
+서버 통신: React-query
+UI 라이브러리: Ant Design
+CSS: styled-components
+
+## 3. 프로젝트 구조
+작성중...
+
+## 4. 프로젝트 기능
 - [ ] 한 번의 검색으로 영화 목록이 20개 이상 검색되도록 만들어보세요.
 - [ ] 영화 개봉연도로 검색할 수 있도록 만들어보세요.
 - [ ] 영화 목록을 검색하는 동안 로딩 애니메이션이 보이도록 만들어보세요.
@@ -20,9 +36,11 @@
 - [ ] 단일 영화의 상세정보(제목, 개봉연도, 평점, 장르, 감독, 배우, 줄거리, 포스터 등)를 볼 수 있도록 만들어보세요.
 - [ ] 영화 상세정보가 출력되기 전에 로딩 애니메이션이 보이도록 만들어보세요.
 - [ ] 영화 상세정보 포스터를 고해상도로 출력해보세요.(실시간 이미지 리사이징)
-- [ ] 차별화가 가능하도록 프로젝트를 최대한 예쁘게 만들어보세요.
-- [ ] 영화와 관련된 기타 기능도 고려해보세요.
 
+## 5. 프로젝트 결과
+작성중...
+
+## 6. API 명세서
 ## API 기본 사용법
 
 ```curl
@@ -39,26 +57,6 @@ curl https://omdbapi.com/?apikey=7035c60c
 `s` | 검색할 영화 제목(필수!) |  
 `y` | 검색할 개봉연도, 빈값은 전체 검색 | 
 `page` | 검색할 페이지 번호 | `1`
-
-요청 코드 예시:
-
-```js
-async function getMovies(title, year = '', page = 1) {
-  const s = `&s=${title}`
-  const y = `&y=${year}`
-  const p = `&page=${page}`
-  const res = await fetch(`https://omdbapi.com/?apikey=7035c60c${s}${y}${p}`)
-  const json = await res.json()
-  if (json.Response === 'True') {
-    const { Search: movies, totalResults } = json
-    return {
-      movies,
-      totalResults
-    }
-  }
-  return json.Error
-}
-```
 
 응답 데이터 타입 및 예시:
 
@@ -108,19 +106,6 @@ interface Movie {
 ---|---|---
 `i` | 검색할 영화 ID(필수!) |
 `plot` | 줄거리 길이 | `short`
-
-요청 코드 예시:
-
-```js
-async function getMovie(id) {
-  const res = await fetch(`https://omdbapi.com/?apikey=7035c60c&i=${id}&plot=full`)
-  const json = await res.json()
-  if (json.Response === 'True') {
-    return json
-  }
-  return json.Error
-}
-```
 
 응답 데이터 타입 및 예시:
 
