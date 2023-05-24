@@ -9,4 +9,8 @@ export default defineConfig({
       '@': '/src',
     },
   },
+  server: {
+    // port 설정
+    port: 3000,
+  },
 });
