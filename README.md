@@ -18,11 +18,11 @@
 5. $ yarn dev
 ```
 ## 2. 프로젝트 스택
-메인 라이브러리 및 프레임워크: React
-상태 관리: Zustand
-서버 통신: React-query
-UI 라이브러리: Ant Design
-CSS: styled-components
+- 메인 라이브러리 및 프레임워크: React
+- 상태 관리: Zustand
+- 서버 통신: React-query
+- UI 라이브러리: Ant Design
+- CSS: styled-components
 
 ## 3. 프로젝트 구조
 작성중...
