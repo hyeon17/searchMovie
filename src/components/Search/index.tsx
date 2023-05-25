@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { useSearchMovie } from '@/apis';
 import * as S from '@/styles/Search.styles';
+import {useOptionStore} from '@/store/store';
 
 function Search() {
   const [open, setOpen] = useState(false);
   const [searchValue, setSearchValue] = useState('');
   const { data, isLoading, isError } = useSearchMovie(searchValue);
+  const { setYear, setCategory, setCount } = useOptionStore();
 
   if (data?.Response === 'True') {
     console.log(data);
@@ -35,8 +37,8 @@ function Search() {
 
     for (let year = currentYear; year >= 1985; year--) {
       const option = {
-        value: year.toString(),
-        label: year.toString(),
+        value: year,
+        label: year,
       };
 
       options.push(option);
@@ -59,17 +61,23 @@ function Search() {
       <S.DrawerContainer title="Basic Drawer" placement="right" onClose={onClose} open={open}>
         <S.SelectContainer>
           <div>YEAR</div>
-          <S.DataSelect defaultValue="All Years" onChange={handleChange} options={generateOptions()}></S.DataSelect>
+          <S.DataSelect
+            defaultValue="All Years"
+            key="year"
+            onChange={handleChange}
+            options={generateOptions()}
+          ></S.DataSelect>
         </S.SelectContainer>
         <S.SelectContainer>
           <div>CATEGORY</div>
           <S.DataSelect
             defaultValue="Movie"
+            key="category"
             onChange={handleChange}
             options={[
-              { value: 'Movie', label: 'Movie' },
-              { value: 'Series', label: 'Series' },
-              { value: 'Episode', label: 'Episode' },
+              { value: 'movie', label: 'Movie' },
+              { value: 'series', label: 'Series' },
+              { value: 'episode', label: 'Episode' },
             ]}
           ></S.DataSelect>
         </S.SelectContainer>
@@ -77,11 +85,12 @@ function Search() {
           <div>VIEW</div>
           <S.DataSelect
             defaultValue="10"
+            key="count"
             onChange={handleChange}
             options={[
-              { value: '10', label: '10' },
-              { value: '20', label: '20' },
-              { value: '30', label: '30' },
+              { value: 10, label: 10 },
+              { value: 20, label: 20 },
+              { value: 30, label: 30 },
             ]}
           ></S.DataSelect>
         </S.SelectContainer>
