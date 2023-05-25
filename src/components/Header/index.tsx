@@ -9,7 +9,7 @@ function Header() {
         navigate('/');
         break;
       case '2':
-        navigate('/movie');
+        navigate('/favorite');
         break;
       case '3':
         navigate('/about');
@@ -24,7 +24,7 @@ function Header() {
       <S.HeaderImg src="../../../public/title.png" />
       <S.HeaderTabs type="card" size="large" onTabClick={handleTabClick}>
         <S.HeaderTabPane tab="Search" key="1"></S.HeaderTabPane>
-        <S.HeaderTabPane tab="Movie" key="2"></S.HeaderTabPane>
+        <S.HeaderTabPane tab="Favorite" key="2"></S.HeaderTabPane>
         <S.HeaderTabPane tab="About" key="3"></S.HeaderTabPane>
       </S.HeaderTabs>
     </S.HeaderContainer>

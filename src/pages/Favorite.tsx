@@ -1,7 +1,7 @@
 import Content from '@/components/Content';
 import React from 'react';
 
-function MoviePage() {
+function FavoritePage() {
   return (
     <>
       <Content />
@@ -9,4 +9,4 @@ function MoviePage() {
   );
 }
 
-export default MoviePage;
+export default FavoritePage;
