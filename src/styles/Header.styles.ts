@@ -5,18 +5,14 @@ import { Tabs } from 'antd';
 export const HeaderContainer = styled.div`
   display: flex;
   width: 100%;
-  height: 100%;
+  height: 40px;
 
 `;
 
 export const HeaderTabs = styled(Tabs)`
   width: 100%;
   height: 100%;
-  .ant-tabs-content-holder {
-    background-image: url('../../public/main_back.png');
-    background-size: cover;
-    background-position: center;
-  }
+  z-index: 1;
   .ant-tabs-tab {
     background-color: ${({ theme }) => theme.colors.white} !important;
     border-color: ${({ theme }) => theme.colors.white} !important;
@@ -34,14 +30,7 @@ export const HeaderTabPane = styled(Tabs.TabPane)`
 export const HeaderImg = styled.img`
   width: 100px;
   height: 100px;
-  margin: 0 20px;
+  margin: -10px 20px 0 20px;
+  z-index: 1;
 `;
 
-export const Overlay = styled.div`
-  position: absolute;
-  top: -20px;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.5); /* 흐림 효과를 줄 색상과 투명도 설정 */
-`;
