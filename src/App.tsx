@@ -1,10 +1,10 @@
-import MainPage from "./pages"
+import Router from "@/routes/Router"
 
 function App() {
 
   return (
     <>
-      <MainPage />
+      <Router />
     </>
   )
 }
