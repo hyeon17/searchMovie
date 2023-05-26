@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Card } from 'antd';
+import { Button} from 'antd';
 
 export const PageContainer = styled.div`
   width: 100%;
@@ -9,22 +9,38 @@ export const PageContainer = styled.div`
   justify-content: center;
 `;
 
-export const CardContainer = styled(Card)`
-  width: 400px;
-  height: 550px;
-  border-radius: 10px;
-  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+export const NotFoundWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
-  transition: all 0.5s ease-in-out;
-  z-index: 1;
-  &:hover {
-    transform: scale(1.05);
-  }
+  margin-top:70px;
 `;
 
-export const CardDescription = styled(Card.Meta)`
-  display: flex;
-  justify-content: center;
+export const NotFoundImg = styled.img`
+  width: 500px;
+  height: 500px;
+  object-fit: cover;
+  z-index: 1;
+`;
+
+export const NotFoundText = styled.div`
+  margin-top: 20px;
+  font-size: 36px;
+  font-weight: bold;
+  color: ${({ theme }) => theme.colors.white};
+  z-index: 1;
+`;
+
+export const NotFoundButton = styled(Button)`
+  margin-top: 30px;
+  width: 200px;
+  height: 50px;
+  font-size: 24px;
+  font-weight: bold;
+  color: ${({ theme }) => theme.colors.white};
+  background-color: transparent;
+  border: 2px solid ${({ theme }) => theme.colors.red};
+  text-align: center;
+  z-index: 1;
 `;
