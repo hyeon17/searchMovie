@@ -1,10 +1,10 @@
 import Content from '@/components/Content';
-import React from 'react';
 
 function FavoritePage() {
   return (
     <>
-      <Content />
+      <div>즐겨찾기</div>
+      <Content content={''} loading={false} />
     </>
   );
 }
