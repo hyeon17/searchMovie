@@ -4,10 +4,10 @@ import { AxiosError, AxiosResponse } from 'axios';
 import { ResponseValue, Movie } from '@/types/searchMovie';
 import { ResponseValue as ResponseValueId, Rating } from '@/types/searchMovieId';
 
-export const useSearchMovie = (title: string, year?: number, page?: number) => {
+export const useSearchMovie = (title: string, type?: string, year?: number | string, page?: number | string) => {
   const queryKey = ['movies'];
   const queryFn = async () => {
-    const url = `${import.meta.env.VITE_APP_BASE_URL}&s=${title}&y=${year}&page=${page}`;
+    const url = `${import.meta.env.VITE_APP_BASE_URL}&s=${title}&type=${type}&y=${year}&page=${page}`;
     const response = await axios.get<AxiosResponse<any>>(url);
     return response.data;
   };
@@ -18,7 +18,7 @@ export const useSearchMovie = (title: string, year?: number, page?: number) => {
   });
 };
 
-export const useSearchMovieId = (id:number) => {
+export const useSearchMovieId = (id: number) => {
   const queryKey = ['movieId'];
   const queryFn = async () => {
     const url = `${import.meta.env.VITE_APP_BASE_URL}&i=${id}`;
