@@ -1,28 +1,40 @@
 import styled from 'styled-components';
 import { Modal } from 'antd';
 
+
 export const ModalContainer = styled(Modal)`
-width: 100px;
-height: 100px;
-display: flex;
-justify-content: center;
-align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const ModalWrapper = styled.div`
+  width: 900px;
+  height: 100%;
+
 `;
 
 export const ModalContent = styled.div`
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
-export const CloseButton = styled.button`
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  font-size: 20px;
-  font-weight: bold;
-  color: #999;
-  background: none;
-  border: none;
-  cursor: pointer;
+export const ContentImg = styled.div`
+  width: 300px;
+  height: 100%;
+  object-fit: cover;
+  display: flex;
+`;
+
+export const ContentText = styled.div`
+  width: 600px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 20px;
+  font-size: 16px;
+  font-weight:bold;
+  color: ${({ theme }) => theme.colors.gray};
 `;
