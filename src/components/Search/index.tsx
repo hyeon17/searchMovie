@@ -1,3 +1,4 @@
+import React from 'react';
 import { useState } from 'react';
 import * as S from '@/styles/Search.styles';
 import SideBar from '@/components/SideBar';
@@ -44,4 +45,4 @@ function Search() {
   );
 }
 
-export default Search;
+export default React.memo(Search);
