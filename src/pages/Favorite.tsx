@@ -1,3 +1,4 @@
+import React from 'react';
 import Content from '@/components/Content';
 
 function FavoritePage() {
@@ -9,4 +10,4 @@ function FavoritePage() {
   );
 }
 
-export default FavoritePage;
+export default React.memo(FavoritePage);
