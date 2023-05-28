@@ -10,12 +10,6 @@ export const HeaderContainer = styled.div`
 export const HeaderTabs = styled(Tabs)`
   width: 100%;
   height: 100%;
-  z-index: 1;
-  .ant-tabs-nav {
-    &::before {
-      border-bottom: none;
-    }
-  }
   .ant-tabs-tab {
     background-color: ${({ theme }) => theme.colors.black} !important;
     color: ${({ theme }) => theme.colors.white} !important;

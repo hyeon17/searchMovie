@@ -11,7 +11,6 @@ export const SearchContainer = styled.div`
   height: 100px;
   margin-top: 20px;
   position: relative;
-  z-index: 1;
 `;
 
 export const SearchWrapper = styled.div`

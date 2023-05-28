@@ -21,7 +21,6 @@ export const NotFoundImg = styled.img`
   width: 500px;
   height: 500px;
   object-fit: cover;
-  z-index: 1;
 `;
 
 export const NotFoundText = styled.div`
@@ -29,7 +28,6 @@ export const NotFoundText = styled.div`
   font-size: 36px;
   font-weight: bold;
   color: ${({ theme }) => theme.colors.white};
-  z-index: 1;
 `;
 
 export const NotFoundButton = styled(Button)`
@@ -42,5 +40,4 @@ export const NotFoundButton = styled(Button)`
   background-color: transparent;
   border: 2px solid ${({ theme }) => theme.colors.red};
   text-align: center;
-  z-index: 1;
 `;
