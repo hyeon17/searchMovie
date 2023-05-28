@@ -2,16 +2,16 @@ import { Outlet } from 'react-router-dom';
 import Header from '@/components/Header';
 import * as S from '@/styles/Main.styles';
 
-function index() {
+function Layout() {
   return (
     <S.MainContainer>
       <Header />
       <S.MainWrapper>
         <Outlet />
-        <S.Overlay/>
+        {/* <S.Overlay/> */}
       </S.MainWrapper>
     </S.MainContainer>
   );
 }
 
-export default index
+export default Layout;
