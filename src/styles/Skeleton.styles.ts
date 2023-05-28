@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Card, Skeleton } from 'antd';
+import { Skeleton } from 'antd';
 
 export const ContentSkeleton = styled.div`
   display: flex;
@@ -13,6 +13,39 @@ export const ContentSkeleton = styled.div`
 export const SkeletonTitle = styled(Skeleton.Input)`
   margin: 5px auto;
 `;
+
 export const SkeletonImg = styled(Skeleton.Image)`
   margin-bottom: 10px;
+`;
+
+export const SModalWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 900px;
+  height: 750px;
+`;
+
+export const SModalContent = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  margin-left: -50px;
+`;
+
+export const SModalImg = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  height: 750px;
+`;
+
+export const SModalText = styled.div`
+  margin-top: 80px;
+  width: 580px;
+  height: 750px;
+  padding-left: 20px;
 `;
