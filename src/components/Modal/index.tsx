@@ -3,61 +3,91 @@ import { useModalStore } from '@/store/modalStore';
 import { useSearchMovieId } from '@/apis';
 import { useIdStore } from '@/store/idStore';
 import { theme } from '@/styles/theme.styles';
-import dayjs from 'dayjs';
+import ModalSkeleton from '@/components/Skeleton/modal';
 
 function Modal() {
   const { setClose, isOpen } = useModalStore();
   const { getId } = useIdStore();
-  const { data, error, isLoading } = useSearchMovieId(getId());
+  const { data: res, isLoading } = useSearchMovieId(getId());
+  const response = res?.data;
 
   const renderValue = (value: string) =>
-    value === 'N/A' ? (
-      <span style={{ color: theme.colors.red }}>데이터 없음</span>
-    ) : (
-      <span style={{ color: theme.colors.black }}>{value}</span>
-    );
+    value === 'N/A' ? <span style={{ color: theme.colors.red }}>데이터 없음</span> : <span>{value}</span>;
+
+  const highImg = (data: any) => {
+    return data.replace('SX300', 'SX1080');
+  };
+
+  const selectImg = (value: any) => {
+    if (value === 'Internet Movie Database') {
+      return <img src="../../../public/imdb.png" alt="imdb" width="auto" height={40} />;
+    } else if (value === 'Rotten Tomatoes') {
+      return <img src="../../../public/tomato.png" alt="rotten" width="auto" height={40} />;
+    } else if (value === 'Metacritic') {
+      return <img src="../../../public/metacritic.png" alt="metacritic" width="auto" height={40} />;
+    }
+  };
 
   return (
-    <S.ModalContainer title="Movie Details" open={isOpen} onOk={setClose} onCancel={setClose}>
+    <S.ModalContainer width={1100} title="Movie Details" open={isOpen} onOk={setClose} onCancel={setClose} centered>
       <S.ModalWrapper>
         {isLoading ? (
-          <div>Loading...</div>
+          <ModalSkeleton />
         ) : (
-          data.Response === 'True' && (
+          response.Response === 'True' && (
             <S.ModalContent>
               <S.ContentImg>
-                {data.Poster === 'N/A' ? (
-                  <img src="../../../public/no_image.png" alt="no_image" />
+                {response.Poster === 'N/A' ? (
+                  <img src="../../../public/no_image.png" alt="no_image" width={300} />
                 ) : (
-                  <img src={data.Poster} alt="poster" />
+                  <img src={highImg(response.Poster)} alt="poster" width={300} />
                 )}
               </S.ContentImg>
               <S.ContentText>
-                <p style={{ fontSize: '30px' }}>{renderValue(data.Title)}</p>
-                <p>영화 개봉연도: {renderValue(data.Year)}</p>
-                <p>영화 등급: {renderValue(data.Rated)}</p>
-                <p>영화 개봉일: {renderValue(data.Released)}</p>
-                <p>영화 상영시간: {renderValue(data.Runtime)}</p>
-                <p>영화 장르: {renderValue(data.Genre)}</p>
-                <p>영화 감독: {renderValue(data.Director)}</p>
-                <p>영화 작가: {renderValue(data.Writer)}</p>
-                <p>영화 출연진: {renderValue(data.Actors)}</p>
-                <p>영화 줄거리: {renderValue(data.Plot)}</p>
-                <p>영화 언어: {renderValue(data.Language)}</p>
-                <p>영화 제작 국가: {renderValue(data.Country)}</p>
-                <p>영화 수상 내역: {renderValue(data.Awards)}</p>
-                <p>영화 메타스코어: {renderValue(data.Metascore)}</p>
-                <p>영화 IMDB 평점: {renderValue(data.imdbRating)}</p>
-                <p>영화 타입: {renderValue(data.Type)}</p>
-                <p>영화 DVD 출시일: {renderValue(dayjs(data.DVD).format('YYYY년-MM월-DD일'))}</p>
-                <p>영화 제작사: {renderValue(data.Production)}</p>
-                <p>영화 공식 웹사이트: {renderValue(data.Website)}</p>
-                {data.Ratings.map((rating: any, index: any) => (
-                  <div key={index}>
-                    <p>평점 제공 사이트: {renderValue(rating.Source)}</p>
-                    <p>평점: {renderValue(rating.Value)}</p>
-                  </div>
-                ))}
+                <p style={{ fontSize: '40px', fontWeight: 'bold' }}>{renderValue(response.Title)}</p>
+                <S.ContentTitle>
+                  <p>{renderValue(response.Rated)} ·&nbsp;</p>
+                  <p>{renderValue(response.Released)} ·&nbsp;</p>
+                  <p>{renderValue(response.Runtime)}</p>
+                </S.ContentTitle>
+                <S.CPlot>{renderValue(response.Plot)}</S.CPlot>
+                <S.CDivider>Ratings</S.CDivider>
+                <S.CRatings>
+                  {response.Ratings.map((rating: any, index: any) => (
+                    <S.CImg key={index}>
+                      <S.CText>{selectImg(rating.Source)}</S.CText>
+                      <S.CText style={{ marginLeft: 10 }}>{renderValue(rating.Value)}</S.CText>
+                    </S.CImg>
+                  ))}
+                </S.CRatings>
+                <S.CDivider>
+                  Genre
+                  <S.CText>{renderValue(response.Genre)}</S.CText>
+                </S.CDivider>
+                <S.CDivider>
+                  Director
+                  <S.CText>{renderValue(response.Director)}</S.CText>
+                </S.CDivider>
+                <S.CDivider>
+                  Writer
+                  <S.CText>{renderValue(response.Writer)}</S.CText>
+                </S.CDivider>
+                <S.CDivider>
+                  Actors
+                  <S.CText>{renderValue(response.Actors)}</S.CText>
+                </S.CDivider>
+                <S.CDivider>
+                  Language
+                  <S.CText>{renderValue(response.Language)}</S.CText>
+                </S.CDivider>
+                <S.CDivider>
+                  Production
+                  <S.CText>{renderValue(response.Production)}</S.CText>
+                </S.CDivider>
+                <S.CDivider>
+                  Website
+                  <S.CText>{renderValue(response.Website)}</S.CText>
+                </S.CDivider>
               </S.ContentText>
             </S.ModalContent>
           )
