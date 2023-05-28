@@ -4,24 +4,29 @@ import Content from '@/components/Content';
 import Search from '@/components/Search';
 import { useSearchMovie } from '@/apis';
 import { useOptionStore } from '@/store/optionStore';
+import { useResponseStore } from '@/store/responseStore';
 
 function SearchPage() {
   const { getYear, getTitle, getCategory, getCount } = useOptionStore();
+  const { setValue, getValue } = useResponseStore();
   const [searchValue, setSearchValue] = useState('');
-  const { data, isLoading } = useSearchMovie(getTitle(), getCategory(), getYear(), getCount());
+  const { data:res, isLoading } = useSearchMovie(getTitle(), getCategory(), getYear(), getCount());
+  const response = res?.data;
 
   useEffect(() => {
-    if (data?.Response === 'True') {
-      setSearchValue(data);
+    if (res && response.Response === 'True') {
+      setValue(response);
+      setSearchValue(response);
     }
-  }, [data]);
+  }, [res]);
+
 
   return (
     <>
       <Search />
-      <Content content={searchValue} loading={isLoading} />
+      <Content content={searchValue} loading={isLoading} favorite={false} />
     </>
   );
 }
 
-export default React.memo(SearchPage);
+export default SearchPage;
