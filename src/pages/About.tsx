@@ -13,6 +13,8 @@ function AboutPage() {
             <GithubOutlined /> GitHub
           </a>
         }
+        icon={false}
+        style={{ height: 510 }}
       />
     </S.PageContainer>
   );
