@@ -8,7 +8,7 @@ import { useOptionStore } from '@/store/optionStore';
 function Search() {
   const [searchValue, setSearchValue] = useState('');
   const { setOpen } = useSideBarStore();
-  const { getYear, getCategory, getCount, setTitle } = useOptionStore();
+  const { getYear, getCategory, setTitle } = useOptionStore();
 
   const handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
     if (event.key === 'Enter') {
@@ -38,7 +38,6 @@ function Search() {
       <S.TagContainer>
         <S.TagItem>{getYear() === '' ? 'All Years' : getYear()}</S.TagItem>
         <S.TagItem>{getCategory() === '' ? 'All Category' : getCategory()}</S.TagItem>
-        <S.TagItem>{getCount() === '' ? '10' : getCount()}</S.TagItem>
       </S.TagContainer>
       <SideBar />
     </S.SearchContainer>
