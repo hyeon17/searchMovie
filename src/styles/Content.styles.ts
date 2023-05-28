@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Pagination } from 'antd';
 
 export const ContentWrapper = styled.div`
   display: flex;
@@ -6,14 +7,14 @@ export const ContentWrapper = styled.div`
   align-items: center;
   width: 1000px;
   margin: 30px auto;
-  background-color: ${({ theme }) => theme.colors.white};
-  position:relative;
-  z-index: 1;
+  position: relative;
 `;
 
 export const ContentContainer = styled.div`
   display: flex;
+  height: 100%;
   flex-wrap: wrap;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   margin: 20px 0;
@@ -34,5 +35,37 @@ export const ContentResult = styled.div`
   font-size: 25px;
   font-weight: bold;
   color: ${({ theme }) => theme.colors.white};
-  z-index: 1;
+`;
+
+export const PageContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+`;
+
+export const StyledPagination = styled(Pagination)`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 30px 0;
+  font-size: 16px;
+  color: ${({ theme }) => theme.colors.white};
+  .ant-pagination-item a {
+    color: ${({ theme }) => theme.colors.white};
+  }
+  .ant-pagination-item-active {
+    border-color: ${({ theme }) => theme.colors.red};
+    a {
+      color: ${({ theme }) => theme.colors.red};
+    }
+  }
+  .ant-pagination-prev,
+  .ant-pagination-next {
+    button {
+      color: ${({ theme }) => theme.colors.red};
+    }
+  }
+  .ant-pagination-item-container .ant-pagination-item-ellipsis {
+    color: ${({ theme }) => theme.colors.white};
+  }
 `;

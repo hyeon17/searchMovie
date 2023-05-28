@@ -1,23 +1,22 @@
+import React from 'react';
 import * as S from '@/styles/Content.styles';
 import Card from '@/components/Card';
 import Skeleton from '@/components/Skeleton';
-import Result from '@/components/Content/result';
+import SearchResult from '@/components/Content/searchResult';
 import { useModalStore } from '@/store/modalStore';
 import Modal from '@/components/Modal';
-import { useIdStore } from '@/store/idStore';
+import Pagination from '@/components/Pagination';
+import FavoriteResult from '@/components/Content/favoriteResult';
 
-function Content({ content, loading }: any) {
-  const { setOpen, isOpen } = useModalStore();
-  const { setId } = useIdStore();
-  
-  const handleClickCard = (imdbID: number) => {
-    setId(imdbID);
-    setOpen();
+function Content({ content, loading, favorite, item }: any) {
+  const { isOpen } = useModalStore();
+  const highImg = (data: any) => {
+    return data.replace('SX300', 'SX1080');
   };
 
   return (
     <>
-      <Result content={content} />
+      {favorite ? <FavoriteResult hasItem={item} /> : <SearchResult content={content} />}
       <S.ContentWrapper>
         {content === '' ? (
           <></>
@@ -27,22 +26,27 @@ function Content({ content, loading }: any) {
               <Skeleton width={270} height={300} count={9} />
             ) : (
               <>
-                {content.Search.map((data: any, idx: number) => (
-                  <S.CardWrapper key={idx} onClick={() => handleClickCard(data.imdbID)}>
-                    <Card
-                      style={{ width: 270 }}
-                      image={
-                        data.Poster === 'N/A' ? (
-                          <img src="../../../public/no_image.png" alt="no_image" />
-                        ) : (
-                          <img src={data.Poster} alt="poster" />
-                        )
-                      }
-                      title={data.Title}
-                      description={data.Year}
-                    />
-                  </S.CardWrapper>
-                ))}
+                <S.PageContainer>
+                  {content.Search.map((data: any, idx: number) => (
+                    <S.CardWrapper key={idx}>
+                      <Card
+                        style={{ width: 270 }}
+                        image={
+                          data.Poster === 'N/A' ? (
+                            <img src="../../../public/no_image.png" alt="no_image" />
+                          ) : (
+                            <img src={highImg(data.Poster)} alt="poster" />
+                          )
+                        }
+                        title={data.Title}
+                        description={data.Year}
+                        icon={true}
+                        data={data}
+                      />
+                    </S.CardWrapper>
+                  ))}
+                </S.PageContainer>
+                <Pagination content={content} />
               </>
             )}
             {isOpen && <Modal />}
