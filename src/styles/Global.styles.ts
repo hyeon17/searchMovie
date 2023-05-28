@@ -8,7 +8,7 @@ const GlobalStyle = createGlobalStyle`
     height: 100vh;
     ${theme.fonts.main};
     color: ${theme.colors.black};
-    background-color: ${({ theme }) => theme.colors.black};
+    background-color: ${({ theme }) => theme.colors.lightBlack};
   }
   a {
     text-decoration: none;

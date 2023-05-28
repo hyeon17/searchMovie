@@ -9,6 +9,7 @@ declare module 'styled-components' {
 
 const colors = {
   black: '#141414',
+  lightBlack: '#1f1f1f',
   white: '#ffffff',
   gray: '#8c8c8c',
   blue: '#1890ff',
