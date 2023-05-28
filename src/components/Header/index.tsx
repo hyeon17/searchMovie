@@ -1,3 +1,4 @@
+import React from 'react';
 import * as S from '@/styles/Header.styles';
 import { useNavigate } from 'react-router-dom';
 
@@ -31,4 +32,4 @@ function Header() {
   );
 }
 
-export default Header;
+export default React.memo(Header);
