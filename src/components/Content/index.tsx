@@ -18,7 +18,7 @@ function Content({ content, loading, favorite, item }: any) {
     <>
       {favorite ? <FavoriteResult hasItem={item} /> : <SearchResult content={content} />}
       <S.ContentWrapper>
-        {content === '' ? (
+        {content ==='' ? (
           <></>
         ) : (
           <S.ContentContainer>
@@ -57,4 +57,4 @@ function Content({ content, loading, favorite, item }: any) {
   );
 }
 
-export default Content;
+export default React.memo(Content);
