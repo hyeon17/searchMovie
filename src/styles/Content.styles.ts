@@ -14,7 +14,7 @@ export const ContentContainer = styled.div`
   display: flex;
   height: 100%;
   flex-wrap: wrap;
-  flex-direction: column;
+  /* flex-direction: column; */
   justify-content: center;
   align-items: center;
   margin: 20px 0;
