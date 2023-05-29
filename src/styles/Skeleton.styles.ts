@@ -4,6 +4,7 @@ import { Skeleton } from 'antd';
 export const ContentSkeleton = styled.div`
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
   width: 270px;
   height: 500px;
   border-radius: 10px;
