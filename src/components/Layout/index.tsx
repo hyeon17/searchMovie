@@ -8,7 +8,6 @@ function Layout() {
       <Header />
       <S.MainWrapper>
         <Outlet />
-        {/* <S.Overlay/> */}
       </S.MainWrapper>
     </S.MainContainer>
   );
