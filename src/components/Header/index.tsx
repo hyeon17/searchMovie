@@ -1,6 +1,7 @@
 import React from 'react';
 import * as S from '@/styles/Header.styles';
 import { useNavigate } from 'react-router-dom';
+import title from '@/assets/title.png';
 
 function Header() {
   const navigate = useNavigate();
@@ -22,7 +23,7 @@ function Header() {
   };
   return (
     <S.HeaderContainer>
-      <S.HeaderImg src="../../../public/title.png" alt="logo" />
+      <S.HeaderImg src={title} alt="logo" />
       <S.HeaderTabs type="card" size="large" onTabClick={handleTabClick}>
         <S.HeaderTabPane tab="Search" key="1"></S.HeaderTabPane>
         <S.HeaderTabPane tab="Favorite" key="2"></S.HeaderTabPane>

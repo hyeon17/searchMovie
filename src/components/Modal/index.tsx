@@ -4,6 +4,10 @@ import { useSearchMovieId } from '@/apis';
 import { useIdStore } from '@/store/idStore';
 import { theme } from '@/styles/theme.styles';
 import ModalSkeleton from '@/components/Skeleton/modal';
+import Imdb from '@/assets/imdb.png';
+import Tomato from '@/assets/tomato.png';
+import Metacritic from '@/assets/metacritic.png';
+import noImg from '@/assets/no_image.png';
 
 function Modal() {
   const { setClose, isOpen } = useModalStore();
@@ -20,11 +24,11 @@ function Modal() {
 
   const selectImg = (value: any) => {
     if (value === 'Internet Movie Database') {
-      return <img src="../../../public/imdb.png" alt="imdb" width="auto" height={40} />;
+      return <img src={Imdb} alt="imdb" width="auto" height={40} />;
     } else if (value === 'Rotten Tomatoes') {
-      return <img src="../../../public/tomato.png" alt="rotten" width="auto" height={40} />;
+      return <img src={Tomato} alt="rotten" width="auto" height={40} />;
     } else if (value === 'Metacritic') {
-      return <img src="../../../public/metacritic.png" alt="metacritic" width="auto" height={40} />;
+      return <img src={Metacritic} alt="metacritic" width="auto" height={40} />;
     }
   };
 
@@ -38,7 +42,7 @@ function Modal() {
             <S.ModalContent>
               <S.ContentImg>
                 {response.Poster === 'N/A' ? (
-                  <img src="../../../public/no_image.png" alt="no_image" width={300} />
+                  <img src={noImg} alt="no_image" width={300} />
                 ) : (
                   <img src={highImg(response.Poster)} alt="poster" width={300} />
                 )}

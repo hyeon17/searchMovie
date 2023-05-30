@@ -1,11 +1,9 @@
-
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Layout from '@/components/Layout';
 import NotFound from '@/pages/NotFound';
 import SearchPage from '@/pages/Search';
 import FavoritePage from '@/pages/Favorite';
 import AboutPage from '@/pages/About';
-
 
 function Router() {
   return (

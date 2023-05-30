@@ -7,6 +7,7 @@ import { useModalStore } from '@/store/modalStore';
 import Modal from '@/components/Modal';
 import Pagination from '@/components/Pagination';
 import FavoriteResult from '@/components/Content/favoriteResult';
+import noImg from '@/assets/no_image.png';
 
 function Content({ content, loading, favorite, item }: any) {
   const { isOpen } = useModalStore();
@@ -18,7 +19,7 @@ function Content({ content, loading, favorite, item }: any) {
     <>
       {favorite ? <FavoriteResult hasItem={item} /> : <SearchResult content={content} />}
       <S.ContentWrapper>
-        {content ==='' ? (
+        {content === '' ? (
           <></>
         ) : (
           <S.ContentContainer>
@@ -33,7 +34,7 @@ function Content({ content, loading, favorite, item }: any) {
                         style={{ width: 270 }}
                         image={
                           data.Poster === 'N/A' ? (
-                            <img src="../../../public/no_image.png" alt="no_image" />
+                            <img src={noImg} alt="NoImage" />
                           ) : (
                             <img src={highImg(data.Poster)} alt="poster" />
                           )
