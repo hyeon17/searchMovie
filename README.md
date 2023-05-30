@@ -1,14 +1,13 @@
 # 프로젝트 소개
 ## 1. 프로젝트 개요
 ### 링크
-[searchMovie]()
+[searchMovie](https://inspiring-cactus-b0f41b.netlify.app)
 
 ### 설명
 > 영화 제목과 연도를 검색하면 해당하는 영화의 정보를 볼 수 있는 사이트 입니다.
 
 - 작업 인원: [장현준](https://github.com/hyeon17)
-- 작업 기간: 2023-05-24 ~ ing
-
+- 작업 기간: 2023-05-24 ~ 2023-05-30
 ### 프로젝트 실행 방법
 ```
 1. $ git clone https://github.com/hyeon17/searchMovie.git
@@ -25,17 +24,46 @@
 - CSS: styled-components
 
 ## 3. 프로젝트 구조
-작성중...
+```
+SearchMovie
+├─ .gitignore
+├─ .prettierrc.json
+├─ index.html
+├─ package.json
+├─ public
+├─ README.md
+├─ src
+│  ├─ apis
+│  ├─ App.tsx
+│  ├─ assets
+│  ├─ components
+│  │  ├─ Card
+│  │  ├─ Content
+│  │  ├─ Header
+│  │  ├─ Layout
+│  │  ├─ Modal
+│  │  ├─ Pagination
+│  │  ├─ Search
+│  │  ├─ SideBar
+│  │  └─ Skeleton
+│  ├─ main.tsx
+│  ├─ pages
+│  ├─ routes
+│  ├─ store
+│  ├─ styles
+│  ├─ types
+│  └─ vite-env.d.ts
+├─ tsconfig.json
+├─ tsconfig.node.json
+├─ vite.config.ts
+└─ yarn.lock
+```
 
 ## 4. 프로젝트 기능
-- [ ] 한 번의 검색으로 영화 목록이 20개 이상 검색되도록 만들어보세요.
-- [ ] 영화 개봉연도로 검색할 수 있도록 만들어보세요.
-- [ ] 영화 목록을 검색하는 동안 로딩 애니메이션이 보이도록 만들어보세요.
-- [ ] 무한 스크롤 기능을 추가해서 추가 영화 목록을 볼 수 있도록 만들어보세요.
-- [ ] 영화 포스터가 없을 경우 대체 이미지를 출력하도록 만들어보세요.
-- [ ] 단일 영화의 상세정보(제목, 개봉연도, 평점, 장르, 감독, 배우, 줄거리, 포스터 등)를 볼 수 있도록 만들어보세요.
-- [ ] 영화 상세정보가 출력되기 전에 로딩 애니메이션이 보이도록 만들어보세요.
-- [ ] 영화 상세정보 포스터를 고해상도로 출력해보세요.(실시간 이미지 리사이징)
+- 추가 검색 옵션(영화 개봉연도, 카테고리)을 통한 필터링 검색
+- 페이지네이션으로 다음 페이지 영화를 보기
+- 느낌표 아이콘을 클릭하면 영화의 상세정보(제목, 개봉연도, 평점, 장르, 감독, 배우, 줄거리, 포스터 등)를 보기
+- 실시간 이미지 리사이징을 통한 영화 포스터를 고해상도로 출력
 
 ## 5. 프로젝트 결과
 작성중...
