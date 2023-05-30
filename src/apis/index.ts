@@ -2,7 +2,7 @@ import axios from 'axios';
 import { useQuery } from '@tanstack/react-query';
 import { AxiosError, AxiosResponse } from 'axios';
 
-export const useSearchMovie = (title: string, type?: string, year?: number | string, page?: number | string) => {
+export const useSearchMovie = (title: string, type?: string, year?: number | string, page?: number) => {
   const queryKey = ['movies'];
   const queryFn = async () => {
     const url = `${import.meta.env.VITE_APP_BASE_URL}&s=${title}&type=${type}&y=${year}&page=${page}`;
@@ -13,8 +13,9 @@ export const useSearchMovie = (title: string, type?: string, year?: number | str
   return useQuery<AxiosResponse<any>, AxiosError>({
     queryKey,
     queryFn,
+    cacheTime: 5000,
     // keepPreviousData: true,
-    staleTime: 5000,
+    // staleTime: 5000,
   });
 };
 
