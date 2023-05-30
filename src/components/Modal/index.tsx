@@ -6,7 +6,7 @@ import { theme } from '@/styles/theme.styles';
 import ModalSkeleton from '@/components/Skeleton/modal';
 import Imdb from '@/assets/imdb.png';
 import Tomato from '@/assets/tomato.png';
-import Metacritic from '@/assets/metacritic.png';
+import Metacritic from '@/assets/Metacritic.png';
 import noImg from '@/assets/no_image.png';
 
 function Modal() {
