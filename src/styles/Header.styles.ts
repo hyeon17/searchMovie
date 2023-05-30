@@ -30,7 +30,7 @@ export const HeaderTabPane = styled(Tabs.TabPane)`
 
 export const HeaderImg = styled.img`
   width: 100px;
-  height: 100px;
-  margin: -10px 20px 0 20px;
-  z-index: 1;
+  height: 50px;
+  margin: 10px 5px;
+  object-fit: cover;
 `;
