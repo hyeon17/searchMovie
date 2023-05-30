@@ -1,15 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import * as S from '@/styles/Card.styles';
 import { HeartOutlined, HeartFilled, ExclamationCircleOutlined } from '@ant-design/icons';
 import { useIdStore } from '@/store/idStore';
 import { useModalStore } from '@/store/modalStore';
-import { useFavoriteStore } from '@/store/favoriteStore';
 
 function Card({ image, title, description, style, icon, data }: any) {
   const [heart, setHeart] = useState(false);
   const { setOpen } = useModalStore();
   const { setId } = useIdStore();
-  const { setFid } = useFavoriteStore();
   const [item, setItem] = useState<any[]>([]);
 
   useEffect(() => {
