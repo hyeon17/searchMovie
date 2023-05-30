@@ -44,4 +44,4 @@ function Search() {
   );
 }
 
-export default Search;
+export default React.memo(Search);

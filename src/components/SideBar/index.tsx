@@ -1,4 +1,3 @@
-import React from 'react';
 import * as S from '@/styles/SideBar.styles';
 import { useSideBarStore } from '@/store/sideBarStore';
 import { useOptionStore } from '@/store/optionStore';
@@ -59,4 +58,4 @@ function SideBar() {
   );
 }
 
-export default React.memo(SideBar);
+export default SideBar;

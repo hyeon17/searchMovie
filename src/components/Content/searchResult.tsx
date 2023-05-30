@@ -1,4 +1,3 @@
-import React from 'react';
 import * as S from '@/styles/Content.styles';
 import { theme } from '@/styles/theme.styles';
 
@@ -20,4 +19,4 @@ function SearchResult({ content }: any) {
   );
 }
 
-export default React.memo(SearchResult);
+export default SearchResult;
