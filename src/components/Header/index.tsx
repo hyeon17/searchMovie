@@ -22,7 +22,7 @@ function Header() {
   };
   return (
     <S.HeaderContainer>
-      <S.HeaderImg src="../../../public/title.png" />
+      <S.HeaderImg src="../../../public/title.png" alt="logo" />
       <S.HeaderTabs type="card" size="large" onTabClick={handleTabClick}>
         <S.HeaderTabPane tab="Search" key="1"></S.HeaderTabPane>
         <S.HeaderTabPane tab="Favorite" key="2"></S.HeaderTabPane>

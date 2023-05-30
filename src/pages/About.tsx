@@ -8,6 +8,7 @@ function AboutPage() {
     <S.PageContainer>
       <Helmet>
         <title>About | MOVIEFLIX</title>
+        <meta name="description" content="https://github.com/hyeon17" />
       </Helmet>
       <Card
         image={<img src="../../public/profile.png" alt="profile" />}
