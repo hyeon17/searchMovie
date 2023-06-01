@@ -8,7 +8,7 @@ function Card({ image, title, description, style, icon, data }: any) {
   const [heart, setHeart] = useState(false);
   const { setOpen } = useModalStore();
   const { setId } = useIdStore();
-  const [item, setItem] = useState<any[]>([]);
+  const [item, setItem] = useState<number[]>([]);
 
   useEffect(() => {
     const storedId = localStorage.getItem('fid');
@@ -24,6 +24,11 @@ function Card({ image, title, description, style, icon, data }: any) {
   }, [item]);
 
   const useHandleHeart = (imdbID: number) => {
+    const storedId = localStorage.getItem('fid');
+    if (storedId) {
+      alert('현재 즐겨찾기는 1개만 가능합니다.');
+      return;
+    }
     setHeart(!heart);
     setItem((prev) => [...prev, imdbID]);
   };

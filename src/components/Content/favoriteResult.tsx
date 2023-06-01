@@ -7,12 +7,14 @@ function FavoriteResult({ hasItem }: any) {
   return (
     <>
       <S.ContentResult>
-        {hasItem ? (
-          <>
+        {hasItem && itemList.length !== 0 ? (
+          <S.ContentResult>
             총 <span style={{ color: theme.colors.red }}>{itemList.length}</span>개의 영화를 즐겨찾기 했습니다.
-          </>
+          </S.ContentResult>
         ) : (
-          <span>즐겨찾기에 추가된 영화가 없습니다.</span>
+          <S.ContentResult>
+            <span>즐겨찾기에 추가된 영화가 없습니다.</span>
+          </S.ContentResult>
         )}
       </S.ContentResult>
     </>
