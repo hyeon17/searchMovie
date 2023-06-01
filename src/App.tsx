@@ -1,9 +1,10 @@
+import Router from "@/routes/Router"
 
 function App() {
 
   return (
     <>
-      <h1>React TypeScript Starter</h1>
+      <Router />
     </>
   )
 }
