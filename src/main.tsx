@@ -7,7 +7,13 @@ import { theme } from '@/styles/theme.styles.ts';
 import GlobalStyle from '@/styles/Global.styles.ts';
 import { HelmetProvider } from 'react-helmet-async';
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      refetchOnWindowFocus: false,
+    },
+  },
+});
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
