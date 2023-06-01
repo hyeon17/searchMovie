@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Pagination } from 'antd';
+import Pagination from 'antd/lib/pagination';
 
 export const ContentWrapper = styled.div`
   display: flex;

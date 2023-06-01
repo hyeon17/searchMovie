@@ -1,5 +1,6 @@
 import styled from 'styled-components';
-import { Card, Skeleton } from 'antd';
+import Skeleton from 'antd/lib/skeleton';
+import Card from 'antd/lib/card';
 
 export const CardContainer = styled(Card)`
   width: 400px;

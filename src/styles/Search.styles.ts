@@ -1,6 +1,8 @@
 import styled from 'styled-components';
-import { Input, Button, Tag } from 'antd';
+import Tag from 'antd/lib/tag';
 import MenuOutlined from '@ant-design/icons/MenuOutlined';
+import Input from 'antd/lib/input';
+import Button from 'antd/lib/button';
 
 export const SearchContainer = styled.div`
   display: flex;

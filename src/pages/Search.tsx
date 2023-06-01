@@ -5,7 +5,7 @@ import { useOptionStore } from '@/store/optionStore';
 import { Helmet } from 'react-helmet-async';
 import { useSearchMovie } from '@/apis';
 import * as S from '@/styles/Page.styles';
-import { SearchOutlined } from '@ant-design/icons';
+import SearchOutlined from '@ant-design/icons/SearchOutlined';
 
 function SearchPage() {
   const { getYear, getTitle, getCategory, getCount } = useOptionStore();

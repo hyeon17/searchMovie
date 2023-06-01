@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import * as S from '@/styles/Card.styles';
-import { HeartOutlined, HeartFilled, ExclamationCircleOutlined } from '@ant-design/icons';
+import ExclamationCircleOutlined from '@ant-design/icons/ExclamationCircleOutlined';
+import HeartOutlined from '@ant-design/icons/HeartOutlined';
+import HeartFilled from '@ant-design/icons/HeartFilled';
 import { useIdStore } from '@/store/idStore';
 import { useModalStore } from '@/store/modalStore';
 

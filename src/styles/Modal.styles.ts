@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Modal } from 'antd';
+import Modal from 'antd/lib/modal';
 
 export const ModalContainer = styled(Modal)`
   display: flex;

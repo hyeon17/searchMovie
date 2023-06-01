@@ -1,5 +1,6 @@
 import styled from 'styled-components';
-import { Drawer, Select } from 'antd';
+import Select from 'antd/lib/select';
+import Drawer from 'antd/lib/drawer';
 
 export const DrawerContainer = styled(Drawer)``;
 

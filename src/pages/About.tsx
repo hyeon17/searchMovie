@@ -1,5 +1,5 @@
 import * as S from '@/styles/Page.styles';
-import { GithubOutlined } from '@ant-design/icons';
+import GithubOutlined from '@ant-design/icons/GithubOutlined';
 import Card from '@/components/Card';
 import { Helmet } from 'react-helmet-async';
 import profile from '@/assets/profile.png';

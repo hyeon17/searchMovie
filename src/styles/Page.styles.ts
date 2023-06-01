@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Button } from 'antd';
+import Button from 'antd/lib/button';
 
 export const PageContainer = styled.div`
   width: 100%;

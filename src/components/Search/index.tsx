@@ -5,7 +5,7 @@ import { useOptionStore } from '@/store/optionStore';
 
 function Search() {
   const { setOpen } = useSideBarStore();
-  const { getYear, getCategory, setTitle, getTitle, getCount } = useOptionStore();
+  const { getYear, getCategory, setTitle } = useOptionStore();
 
   return (
     <S.SearchContainer>

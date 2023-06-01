@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Skeleton } from 'antd';
+import Skeleton from 'antd/lib/skeleton';
 
 export const ContentSkeleton = styled.div`
   display: flex;

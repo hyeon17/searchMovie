@@ -1,4 +1,3 @@
-import React from 'react';
 import * as S from '@/styles/Header.styles';
 import { useNavigate } from 'react-router-dom';
 import title from '@/assets/title.png';
