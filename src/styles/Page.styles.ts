@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Button} from 'antd';
+import { Button } from 'antd';
 
 export const PageContainer = styled.div`
   width: 100%;
@@ -14,7 +14,7 @@ export const NotFoundWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top:70px;
+  margin-top: 70px;
 `;
 
 export const NotFoundImg = styled.img`
@@ -40,4 +40,17 @@ export const NotFoundButton = styled(Button)`
   background-color: transparent;
   border: 2px solid ${({ theme }) => theme.colors.red};
   text-align: center;
+`;
+export const SearchWrapper = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+export const SearchButton = styled(Button)`
+  color: ${({ theme }) => theme.colors.white};
+  background-color: transparent;
+  border: 2px solid ${({ theme }) => theme.colors.red};
+  text-align: center;
+  height: 41px;
+  margin-bottom: 25px;
 `;
