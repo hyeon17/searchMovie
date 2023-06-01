@@ -64,6 +64,7 @@ SearchMovie
 - 페이지네이션으로 다음 페이지 영화를 보기
 - 느낌표 아이콘을 클릭하면 영화의 상세정보(제목, 개봉연도, 평점, 장르, 감독, 배우, 줄거리, 포스터 등)를 보기
 - 실시간 이미지 리사이징을 통한 영화 포스터를 고해상도로 출력
+- 하트 버튼을 눌러 나만의 즐겨찾는 영화 추가하기(현재 1개만 가능)
 
 ## 5. 프로젝트 결과
 ### 메인
@@ -71,16 +72,20 @@ SearchMovie
 
 ### 검색 필터링
 ![category](/src/assets/category.png)
-### 즐겨 찾기(기능 미완성)
-![favorite](/src/assets/favorite.png)
+
 ### 검색 결과
 ![result](/src/assets/result.png)
+
+### 페이지네이션을 통한 다음 페이지 보기
+![nextpage](/src/assets/nextpage.png)
 
 ### 상세 보기
 ![overview](/src/assets/overview.png)
 
-### 하트 버튼을 통한 즐겨 찾기 추가(기능 미완성)
+### 하트 버튼을 통한 즐겨 찾기 추가(현재 1개만 가능)
 ![heart](/src/assets/heart.png)
 
+### 즐겨 찾기
+![favorite](/src/assets/favorite.png)
 ### 개발자 GitHub 링크
 ![about](/src/assets/about.png)
