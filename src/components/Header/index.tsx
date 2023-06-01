@@ -24,7 +24,7 @@ function Header() {
   return (
     <S.HeaderContainer>
       <S.HeaderImg src={title} alt="logo" />
-      <S.HeaderTabs type="card" size="large" onTabClick={handleTabClick} role='tabs'>
+      <S.HeaderTabs type="card" size="large" onTabClick={handleTabClick} role="tabs">
         <S.HeaderTabPane tab="Search" key="1"></S.HeaderTabPane>
         <S.HeaderTabPane tab="Favorite" key="2"></S.HeaderTabPane>
         <S.HeaderTabPane tab="About" key="3"></S.HeaderTabPane>
@@ -33,4 +33,4 @@ function Header() {
   );
 }
 
-export default React.memo(Header);
+export default Header;

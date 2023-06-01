@@ -6,7 +6,7 @@ interface idState {
   getId: () => number;
 }
 
-const idState = create<idState>((set,get) => ({
+const idState = create<idState>((set, get) => ({
   id: 0,
   setId: (id) => set({ id }),
   getId: () => get().id,

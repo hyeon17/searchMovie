@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet-async';
 import movie from '@/assets/movie.png';
 
 function NotFound() {
-   const navigate = useNavigate();
+  const navigate = useNavigate();
   return (
     <S.NotFoundWrapper>
       <Helmet>
@@ -18,4 +18,4 @@ function NotFound() {
   );
 }
 
-export default NotFound
+export default NotFound;

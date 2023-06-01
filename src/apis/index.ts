@@ -13,12 +13,8 @@ export const useSearchMovie = (title: string, type?: string, year?: number | str
   return useQuery<AxiosResponse<any>, AxiosError>({
     queryKey,
     queryFn,
-    cacheTime: 5000,
-    // keepPreviousData: true,
-    // staleTime: 5000,
   });
 };
-
 
 export const useSearchMovieId = (id: number) => {
   const queryKey = ['movieId'];

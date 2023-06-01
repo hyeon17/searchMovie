@@ -22,7 +22,7 @@ export const CardContainer = styled(Card)`
     justify-content: center;
     align-items: center;
   }
-  .ant-card-body{
+  .ant-card-body {
     padding: 12px;
   }
 `;
