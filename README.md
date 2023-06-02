@@ -31,27 +31,65 @@ SearchMovie
 ├─ index.html
 ├─ package.json
 ├─ public
+│  ├─ favicon.ico
+│  └─ vite.svg
 ├─ README.md
 ├─ src
 │  ├─ apis
+│  │  └─ index.ts
 │  ├─ App.tsx
 │  ├─ assets
 │  ├─ components
 │  │  ├─ Card
+│  │  │  └─ index.tsx
 │  │  ├─ Content
+│  │  │  ├─ containder.tsx
+│  │  │  ├─ favoriteResult.tsx
+│  │  │  ├─ index.tsx
+│  │  │  └─ searchResult.tsx
 │  │  ├─ Header
+│  │  │  └─ index.tsx
 │  │  ├─ Layout
+│  │  │  └─ index.tsx
 │  │  ├─ Modal
+│  │  │  └─ index.tsx
 │  │  ├─ Pagination
+│  │  │  └─ index.tsx
 │  │  ├─ Search
+│  │  │  └─ index.tsx
 │  │  ├─ SideBar
+│  │  │  └─ index.tsx
 │  │  └─ Skeleton
+│  │     ├─ index.tsx
+│  │     └─ modal.tsx
 │  ├─ main.tsx
 │  ├─ pages
+│  │  ├─ About.tsx
+│  │  ├─ Favorite.tsx
+│  │  ├─ NotFound.tsx
+│  │  └─ Search.tsx
 │  ├─ routes
+│  │  └─ Router.tsx
 │  ├─ store
+│  │  ├─ idStore.ts
+│  │  ├─ modalStore.ts
+│  │  ├─ optionStore.ts
+│  │  └─ sideBarStore.ts
 │  ├─ styles
+│  │  ├─ Card.styles.ts
+│  │  ├─ Content.styles.ts
+│  │  ├─ Global.styles.ts
+│  │  ├─ Header.styles.ts
+│  │  ├─ Main.styles.ts
+│  │  ├─ Modal.styles.ts
+│  │  ├─ Page.styles.ts
+│  │  ├─ Search.styles.ts
+│  │  ├─ SideBar.styles.ts
+│  │  ├─ Skeleton.styles.ts
+│  │  └─ theme.styles.ts
 │  ├─ types
+│  │  ├─ searchMovie.ts
+│  │  └─ searchMovieId.ts
 │  └─ vite-env.d.ts
 ├─ tsconfig.json
 ├─ tsconfig.node.json
@@ -89,3 +127,5 @@ SearchMovie
 ![favorite](/src/assets/favorite.png)
 ### 개발자 GitHub 링크
 ![about](/src/assets/about.png)
+
+
