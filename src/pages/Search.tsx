@@ -25,6 +25,9 @@ function SearchPage() {
     if (response && response.Error === 'Movie not found!') {
       setSearchValue(response);
     }
+    if (response && response.Response === 'Too many results.') {
+      setSearchValue(response);
+    }
   }, [response]);
 
   const handleButtonClick = () => {

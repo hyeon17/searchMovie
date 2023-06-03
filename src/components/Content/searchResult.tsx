@@ -4,6 +4,7 @@ import { theme } from '@/styles/theme.styles';
 
 function SearchResult({ content }: any) {
   const { getTitle } = useOptionStore();
+
   return (
     <>
       {content.Response === '' ? (
@@ -13,6 +14,10 @@ function SearchResult({ content }: any) {
       ) : content.Error === 'Movie not found!' ? (
         <S.ContentResult>
           <span style={{ color: theme.colors.red }}>{getTitle()}</span>에 대한 검색결과가 없습니다
+        </S.ContentResult>
+      ) : content.Error === 'Too many results.' ? (
+        <S.ContentResult>
+          <span>영어로 검색해주세요.</span>
         </S.ContentResult>
       ) : (
         <S.ContentResult>
