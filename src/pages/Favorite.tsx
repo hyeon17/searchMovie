@@ -4,16 +4,15 @@ import { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 
 function FavoritePage() {
-  const [content, setContent] = useState({Search: []});
+  const [content, setContent] = useState<any[]>([]);
   const itemList = JSON.parse(localStorage.getItem('fid') || '[]');
-  const { data: res } = useSearchMovieId(itemList[0]);
+  const { data: res } = useSearchMovieId(itemList[0].imdbID);
 
   useEffect(() => {
     if (res?.data) {
-      setContent({Search:res.data});
+      setContent([res?.data]);
     }
   }, [res]);
-
 
   return (
     <>
