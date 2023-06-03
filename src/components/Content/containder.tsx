@@ -28,7 +28,7 @@ function Container({ content }: any) {
             />
           </S.CardWrapper>
         ))
-      ) : content === undefined ? (
+      ) : content[0] === `{"Response":"False","Error":"Conversion from string "undefined" to type 'Double' is not valid."}` ? (
         <></>
       ) : (
         content.map((data: any) => (
