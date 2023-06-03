@@ -6,7 +6,7 @@ import { Helmet } from 'react-helmet-async';
 function FavoritePage() {
   const [content, setContent] = useState<any[]>([]);
   const itemList = JSON.parse(localStorage.getItem('fid') || '[]');
-  const { data: res } = useSearchMovieId(itemList[0].imdbID);
+  const { data: res } = useSearchMovieId(itemList[0]?.imdbID);
 
   useEffect(() => {
     if (res?.data) {
