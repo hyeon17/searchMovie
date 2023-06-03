@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import * as S from '@/styles/Card.styles';
 import ExclamationCircleOutlined from '@ant-design/icons/ExclamationCircleOutlined';
 import HeartOutlined from '@ant-design/icons/HeartOutlined';
@@ -10,29 +10,31 @@ function Card({ image, title, description, style, icon, data }: any) {
   const [heart, setHeart] = useState(false);
   const { setOpen } = useModalStore();
   const { setId } = useIdStore();
-  const [item, setItem] = useState<number[]>([]);
 
-  useEffect(() => {
-    const storedId = localStorage.getItem('fid');
-    if (storedId) {
-      setItem(JSON.parse(storedId));
+  const isHeart = (imdbID: number) => {
+    const storedData = localStorage.getItem('fid');
+    if (storedData) {
+      const data = JSON.parse(storedData);
+      const existingItem = data.find((item: any) => item.imdbID === imdbID);
+      return existingItem ? existingItem.heart : false;
     }
-  }, []);
-
-  useEffect(() => {
-    if (item.length > 0) {
-      localStorage.setItem('fid', JSON.stringify(item));
-    }
-  }, [item]);
+    return false;
+  };
 
   const useHandleHeart = (imdbID: number) => {
-    const storedId = localStorage.getItem('fid');
-    if (storedId) {
-      alert('현재 즐겨찾기는 1개만 가능합니다.');
-      return;
+    const storedData = localStorage.getItem('fid');
+    let data = storedData ? JSON.parse(storedData) : [];
+    const newData = { imdbID, heart: true };
+
+    const existingIndex = data.findIndex((item: any) => item.imdbID === imdbID);
+    if (existingIndex !== -1) {
+      data.splice(existingIndex, 1);
+      setHeart(false);
+    } else {
+      data.push(newData);
+      setHeart(true);
     }
-    setHeart(!heart);
-    setItem((prev) => [...prev, imdbID]);
+    localStorage.setItem('fid', JSON.stringify(data));
   };
 
   const handleClickCard = (imdbID: number) => {
@@ -49,7 +51,7 @@ function Card({ image, title, description, style, icon, data }: any) {
             <ExclamationCircleOutlined />
           </div>
           <S.CardHeart onClick={() => useHandleHeart(data.imdbID)}>
-            {heart ? <HeartFilled /> : <HeartOutlined />}
+            {isHeart(data.imdbID) ? <HeartFilled /> : <HeartOutlined />}
           </S.CardHeart>
         </S.CardIcon>
       )}
