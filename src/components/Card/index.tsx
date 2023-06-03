@@ -7,7 +7,7 @@ import { useIdStore } from '@/store/idStore';
 import { useModalStore } from '@/store/modalStore';
 
 function Card({ image, title, description, style, icon, data }: any) {
-  const [heart, setHeart] = useState(false);
+  const [ ,setHeart] = useState(false);
   const { setOpen } = useModalStore();
   const { setId } = useIdStore();
 
