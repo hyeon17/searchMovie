@@ -9,7 +9,7 @@ function FavoritePage() {
   const items: any[] = [];
 
   itemList.forEach((item: any) => {
-    const { data: res, isSuccess, refetch } = useSearchMovieId(item.imdbID);
+    const { data: res, isSuccess } = useSearchMovieId(item.imdbID);
     // 첫 데이터가 들어간뒤에 렌더링이 되고 나서 다음 데이터는 들어가지 않음
     if (isSuccess) {
       items.push(res?.data);
