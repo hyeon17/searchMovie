@@ -4,10 +4,10 @@
 [searchMovie](https://inspiring-cactus-b0f41b.netlify.app)
 
 ### 설명
-> 영화 제목과 연도를 검색하면 해당하는 영화의 정보를 볼 수 있는 사이트 입니다.
+> 영화 제목을 검색하면 해당하는 영화의 정보를 볼 수 있는 사이트 입니다.
 
 - 작업 인원: [장현준](https://github.com/hyeon17)
-- 작업 기간: 2023-05-24 ~ 2023-05-30
+- 작업 기간: 2023-05-24 ~ 2023-05-31
 ### 프로젝트 실행 방법
 ```
 1. $ git clone https://github.com/hyeon17/searchMovie.git
@@ -102,7 +102,7 @@ SearchMovie
 - 페이지네이션으로 다음 페이지 영화를 보기
 - 느낌표 아이콘을 클릭하면 영화의 상세정보(제목, 개봉연도, 평점, 장르, 감독, 배우, 줄거리, 포스터 등)를 보기
 - 실시간 이미지 리사이징을 통한 영화 포스터를 고해상도로 출력
-- 하트 버튼을 눌러 나만의 즐겨찾는 영화 추가하기(현재 1개만 즐겨찾기에 표시됨)
+- 하트 버튼을 눌러 나만의 즐겨찾는 영화 추가하기
 
 ## 5. 프로젝트 결과
 ### 메인
@@ -123,9 +123,11 @@ SearchMovie
 ### 하트 버튼을 통한 즐겨 찾기 추가
 ![heart](/src/assets/heart.png)
 
-### 즐겨 찾기(현재 1개만 표시됨)
+### 즐겨 찾기(현재 처음으로 클릭한 즐겨찾기만 표시됨)
 ![favorite](/src/assets/favorite.png)
 ### 개발자 GitHub 링크
 ![about](/src/assets/about.png)
 
+### 사이트 성능
+![lighthouse](/src/assets/lighthouse.png)
 
