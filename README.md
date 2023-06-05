@@ -26,13 +26,13 @@
 ## 3. 프로젝트 구조
 ```
 SearchMovie
+├─ .eslintrc.cjs
+├─ .git
 ├─ .gitignore
 ├─ .prettierrc.json
 ├─ index.html
 ├─ package.json
 ├─ public
-│  ├─ favicon.ico
-│  └─ vite.svg
 ├─ README.md
 ├─ src
 │  ├─ apis
@@ -41,27 +41,14 @@ SearchMovie
 │  ├─ assets
 │  ├─ components
 │  │  ├─ Card
-│  │  │  └─ index.tsx
 │  │  ├─ Content
-│  │  │  ├─ containder.tsx
-│  │  │  ├─ favoriteResult.tsx
-│  │  │  ├─ index.tsx
-│  │  │  └─ searchResult.tsx
 │  │  ├─ Header
-│  │  │  └─ index.tsx
 │  │  ├─ Layout
-│  │  │  └─ index.tsx
 │  │  ├─ Modal
-│  │  │  └─ index.tsx
 │  │  ├─ Pagination
-│  │  │  └─ index.tsx
 │  │  ├─ Search
-│  │  │  └─ index.tsx
 │  │  ├─ SideBar
-│  │  │  └─ index.tsx
 │  │  └─ Skeleton
-│  │     ├─ index.tsx
-│  │     └─ modal.tsx
 │  ├─ main.tsx
 │  ├─ pages
 │  │  ├─ About.tsx
@@ -69,27 +56,9 @@ SearchMovie
 │  │  ├─ NotFound.tsx
 │  │  └─ Search.tsx
 │  ├─ routes
-│  │  └─ Router.tsx
 │  ├─ store
-│  │  ├─ idStore.ts
-│  │  ├─ modalStore.ts
-│  │  ├─ optionStore.ts
-│  │  └─ sideBarStore.ts
 │  ├─ styles
-│  │  ├─ Card.styles.ts
-│  │  ├─ Content.styles.ts
-│  │  ├─ Global.styles.ts
-│  │  ├─ Header.styles.ts
-│  │  ├─ Main.styles.ts
-│  │  ├─ Modal.styles.ts
-│  │  ├─ Page.styles.ts
-│  │  ├─ Search.styles.ts
-│  │  ├─ SideBar.styles.ts
-│  │  ├─ Skeleton.styles.ts
-│  │  └─ theme.styles.ts
 │  ├─ types
-│  │  ├─ searchMovie.ts
-│  │  └─ searchMovieId.ts
 │  └─ vite-env.d.ts
 ├─ tsconfig.json
 ├─ tsconfig.node.json
@@ -123,11 +92,12 @@ SearchMovie
 ### 하트 버튼을 통한 즐겨 찾기 추가
 ![heart](/src/assets/heart.png)
 
-### 즐겨 찾기(현재 처음으로 클릭한 즐겨찾기만 표시됨)
+### 즐겨 찾기
 ![favorite](/src/assets/favorite.png)
 ### 개발자 GitHub 링크
 ![about](/src/assets/about.png)
 
 ### 사이트 성능
 ![lighthouse](/src/assets/lighthouse.png)
+
 
