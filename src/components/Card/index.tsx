@@ -21,20 +21,20 @@ function Card({ image, title, description, style, icon, data }: any) {
     return false;
   };
 
-  const useHandleHeart = (imdbID: number) => {
+  const useHandleHeart = (items: any) => {
     const storedData = localStorage.getItem('fid');
-    let data = storedData ? JSON.parse(storedData) : [];
-    const newData = { imdbID, heart: true };
+    const isData = storedData ? JSON.parse(storedData) : [];
+    const newData = { imdbID: items.imdbID, Poster: items.Poster, Title: items.Title, Year: items.Year, heart: true };
 
-    const existingIndex = data.findIndex((item: any) => item.imdbID === imdbID);
+    const existingIndex = isData.findIndex((item: any) => item.imdbID === items.imdbID);
     if (existingIndex !== -1) {
-      data.splice(existingIndex, 1);
+      isData.splice(existingIndex, 1);
       setHeart(false);
     } else {
-      data.push(newData);
+      isData.push(newData);
       setHeart(true);
     }
-    localStorage.setItem('fid', JSON.stringify(data));
+    localStorage.setItem('fid', JSON.stringify(isData));
   };
 
   const handleClickCard = (imdbID: number) => {
@@ -50,7 +50,7 @@ function Card({ image, title, description, style, icon, data }: any) {
           <div onClick={() => handleClickCard(data.imdbID)}>
             <ExclamationCircleOutlined />
           </div>
-          <S.CardHeart onClick={() => useHandleHeart(data.imdbID)}>
+          <S.CardHeart onClick={() => useHandleHeart(data)}>
             {isHeart(data.imdbID) ? <HeartFilled /> : <HeartOutlined />}
           </S.CardHeart>
         </S.CardIcon>
