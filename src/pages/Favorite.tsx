@@ -9,10 +9,10 @@ function FavoritePage() {
 
   itemList.map((item: any) => {
     items.push(item);
-  }); 
+  });
 
   useEffect(() => {
-    if (items) {
+    if (items.length > 0) {
       setContent(items);
     }
   }, []);

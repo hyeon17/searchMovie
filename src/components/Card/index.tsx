@@ -1,13 +1,13 @@
-import { useState } from 'react';
 import * as S from '@/styles/Card.styles';
 import ExclamationCircleOutlined from '@ant-design/icons/ExclamationCircleOutlined';
 import HeartOutlined from '@ant-design/icons/HeartOutlined';
 import HeartFilled from '@ant-design/icons/HeartFilled';
 import { useIdStore } from '@/store/idStore';
 import { useModalStore } from '@/store/modalStore';
+import { useHeartStore } from '@/store/heartStore';
 
 function Card({ image, title, description, style, icon, data }: any) {
-  const [ ,setHeart] = useState(false);
+  const { setIsHeart } = useHeartStore();
   const { setOpen } = useModalStore();
   const { setId } = useIdStore();
 
@@ -29,10 +29,12 @@ function Card({ image, title, description, style, icon, data }: any) {
     const existingIndex = isData.findIndex((item: any) => item.imdbID === items.imdbID);
     if (existingIndex !== -1) {
       isData.splice(existingIndex, 1);
-      setHeart(false);
+      alert('즐겨찾기에서 삭제되었습니다.');
+      setIsHeart(false);
     } else {
       isData.push(newData);
-      setHeart(true);
+      alert('즐겨찾기에 추가되었습니다.');
+      setIsHeart(true);
     }
     localStorage.setItem('fid', JSON.stringify(isData));
   };
