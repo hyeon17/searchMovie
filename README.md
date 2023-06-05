@@ -98,4 +98,4 @@ SearchMovie
 ![about](/src/assets/about.png)
 
 ### 사이트 성능
-![lighthouse](/src/assets/lighthouse.png)
+![성능](/src/assets/%EC%84%B1%EB%8A%A5.png)
