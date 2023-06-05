@@ -22,6 +22,7 @@
 - 서버 통신: React-query
 - UI 라이브러리: Ant Design
 - CSS: styled-components
+- 배포: Netlify
 
 ## 3. 프로젝트 구조
 ```
