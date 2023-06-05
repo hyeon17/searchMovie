@@ -99,5 +99,3 @@ SearchMovie
 
 ### 사이트 성능
 ![lighthouse](/src/assets/lighthouse.png)
-
-
