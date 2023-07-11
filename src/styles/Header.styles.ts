@@ -33,4 +33,5 @@ export const HeaderImg = styled.img`
   height: 50px;
   margin: 10px 5px;
   object-fit: cover;
+  cursor: pointer;
 `;
