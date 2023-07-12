@@ -1,11 +1,12 @@
 import * as S from '@/styles/Header.styles';
 import { useNavigate } from 'react-router-dom';
 import title from '@/assets/title.png';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 function Header() {
-  const [activeTab, setActiveTab] = useState('1');
+  const [activeTab, setActiveTab] = useState(localStorage.getItem('activeTab') || '1');
   const navigate = useNavigate();
+
   const handleTabClick = (key: string) => {
     setActiveTab(key);
     switch (key) {
@@ -28,6 +29,10 @@ function Header() {
     setActiveTab('1');
     navigate('/');
   };
+
+  useEffect(() => {
+    localStorage.setItem('activeTab', activeTab);
+  }, [activeTab]);
 
   return (
     <S.HeaderContainer>
