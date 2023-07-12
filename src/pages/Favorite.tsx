@@ -1,8 +1,10 @@
 import Content from '@/components/Content';
+import MetaTag from '@/components/MetaTag';
 import { useState, useEffect } from 'react';
-import { Helmet } from 'react-helmet-async';
+import { useLocation } from 'react-router-dom';
 
 function FavoritePage() {
+  const location = useLocation();
   const [content, setContent] = useState<any[]>([]);
   const itemList = JSON.parse(localStorage.getItem('fid') || '[]');
   const items: any[] = [];
@@ -17,12 +19,17 @@ function FavoritePage() {
     }
   }, []);
 
+  const metaTagProps = {
+    title: 'Favorite | MOVIEFLIX',
+    content: '즐겨찾기',
+    keywords: '영화, 검색, movie, search, MOVIEFLIX',
+    description: '즐겨찾기',
+    url: location.pathname,
+  };
+
   return (
     <>
-      <Helmet>
-        <title>Favorite | MOVIEFLIX</title>
-        <meta name="description" content="즐겨찾기" />
-      </Helmet>
+      <MetaTag props={metaTagProps} />
       <Content content={content} favorite={true} item={true} />
     </>
   );

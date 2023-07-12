@@ -2,10 +2,11 @@ import { useState, useEffect } from 'react';
 import Content from '@/components/Content';
 import Search from '@/components/Search';
 import { useOptionStore } from '@/store/optionStore';
-import { Helmet } from 'react-helmet-async';
 import { useSearchMovie } from '@/apis';
 import * as S from '@/styles/Page.styles';
 import SearchOutlined from '@ant-design/icons/SearchOutlined';
+import MetaTag from '@/components/MetaTag';
+import { useLocation } from 'react-router-dom';
 
 function SearchPage() {
   const { getYear, getTitle, getCategory, getCount } = useOptionStore();
@@ -17,6 +18,7 @@ function SearchPage() {
   });
   const { data: res, isLoading, refetch } = useSearchMovie(getTitle(), getCategory(), getYear(), getCount());
   const response = res?.data;
+  const location = useLocation();
 
   useEffect(() => {
     if (response && response.Response === 'True') {
@@ -34,12 +36,17 @@ function SearchPage() {
     refetch();
   };
 
+  const metaTagProps = {
+    title: 'Search | MOVIEFLIX',
+    content: 'MOVIEFLIX에서 원하는 영화를 검색해보세요',
+    keywords: '영화, 검색, movie, search, MOVIEFLIX',
+    description: 'MOVIEFLIX에서 원하는 영화를 검색해보세요',
+    url: location.pathname,
+  };
+
   return (
     <>
-      <Helmet>
-        <title>Search | MOVIEFLIX</title>
-        <meta name="description" content="MOVIEFLIX에서 원하는 영화를 검색해보세요" />
-      </Helmet>
+      <MetaTag props={metaTagProps} />
       <S.SearchWrapper>
         <Search />
         <S.SearchButton style={{ width: 50 }} onClick={handleButtonClick} icon={<SearchOutlined />} />
