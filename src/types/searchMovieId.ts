@@ -1,4 +1,4 @@
-export interface ResponseValue {
+export interface IDetailMovie {
   Title: string; // 영화 제목
   Year: string; // 영화 개봉연도
   Rated: string; // 영화 등급

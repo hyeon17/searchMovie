@@ -1,7 +1,7 @@
 import * as S from '@/styles/Content.styles';
 import { theme } from '@/styles/theme.styles';
 
-function FavoriteResult({ hasItem }: any) {
+function FavoriteResult({ hasItem }: { hasItem?: boolean }) {
   const itemList = JSON.parse(localStorage.getItem('fid') || '[]');
 
   return (

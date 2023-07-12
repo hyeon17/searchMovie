@@ -14,7 +14,7 @@ function Search() {
           placeholder="Search for Movies, Series & more"
           size="large"
           type="text"
-          onChange={(e: any) => setTitle(e.target.value)}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) => setTitle(e.target.value)}
         />
         <S.MoreButton onClick={setOpen}>
           <S.MenuIcon />

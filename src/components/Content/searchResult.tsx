@@ -1,8 +1,9 @@
 import { useOptionStore } from '@/store/optionStore';
 import * as S from '@/styles/Content.styles';
 import { theme } from '@/styles/theme.styles';
+import { IMovieResponse } from '@/types/searchMovie';
 
-function SearchResult({ content }: any) {
+function SearchResult({ content }: { content: IMovieResponse }) {
   const { getTitle } = useOptionStore();
 
   return (

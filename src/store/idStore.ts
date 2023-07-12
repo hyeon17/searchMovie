@@ -1,13 +1,13 @@
 import { create } from 'zustand';
 
 interface idState {
-  id: number;
-  setId: (id: number) => void;
-  getId: () => number;
+  id: string;
+  setId: (id: string) => void;
+  getId: () => string;
 }
 
 const idState = create<idState>((set, get) => ({
-  id: 0,
+  id: '',
   setId: (id) => set({ id }),
   getId: () => get().id,
 }));

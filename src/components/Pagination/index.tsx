@@ -1,13 +1,17 @@
 import { useState, useEffect } from 'react';
 import * as S from '@/styles/Content.styles';
 import { useOptionStore } from '@/store/optionStore';
-import { useSearchMovie } from '@/apis';
+import { searchMovie } from '@/apis';
+import { IMovieResponse } from '@/types/searchMovie';
+import { useQuery } from '@tanstack/react-query';
 
-function Pagination({ content }: any) {
+function Pagination({ content }: { content: IMovieResponse }) {
   const [currentPage, setCurrentPage] = useState(1);
   const { getTitle, getCategory, getYear } = useOptionStore();
-  const { refetch } = useSearchMovie(getTitle(), getCategory(), getYear(), currentPage);
-  const totalResults = content.totalResults || 0;
+  const { refetch } = useQuery<IMovieResponse>(['movies'], () =>
+    searchMovie(getTitle(), getCategory(), getYear(), currentPage),
+  );
+  const totalResults = Number(content.totalResults) || 0;
   const totalPages = Math.ceil(totalResults / 10);
 
   const handlePageChange = async (page: number) => {
@@ -24,7 +28,7 @@ function Pagination({ content }: any) {
         defaultCurrent={1}
         current={currentPage}
         onChange={handlePageChange}
-        showTotal={(total: any, range: any) => `${range[0]}-${range[1]} of ${total} items`}
+        showTotal={(total: number, range: [number, number]) => `${range[0]}-${range[1]} of ${total} items`}
         defaultPageSize={10}
         showSizeChanger={false}
         total={totalResults}

@@ -2,22 +2,29 @@ import { useState, useEffect } from 'react';
 import Content from '@/components/Content';
 import Search from '@/components/Search';
 import { useOptionStore } from '@/store/optionStore';
-import { useSearchMovie } from '@/apis';
+import { searchMovie } from '@/apis';
 import * as S from '@/styles/Page.styles';
 import SearchOutlined from '@ant-design/icons/SearchOutlined';
 import MetaTag from '@/components/MetaTag';
 import { useLocation } from 'react-router-dom';
+import { IMovieResponse } from '@/types/searchMovie';
+import { useQuery } from '@tanstack/react-query';
 
 function SearchPage() {
   const { getYear, getTitle, getCategory, getCount } = useOptionStore();
-  const [searchValue, setSearchValue] = useState({
+  const [searchValue, setSearchValue] = useState<IMovieResponse>({
     Search: [],
     totalResults: '',
     Response: '',
     Error: '',
   });
-  const { data: res, isLoading, refetch } = useSearchMovie(getTitle(), getCategory(), getYear(), getCount());
-  const response = res?.data;
+  const {
+    data: res,
+    isLoading,
+    refetch,
+  } = useQuery<IMovieResponse>(['movies'], () => searchMovie(getTitle(), getCategory(), getYear(), getCount()));
+
+  const response = res || searchValue;
   const location = useLocation();
 
   useEffect(() => {
@@ -51,7 +58,6 @@ function SearchPage() {
         <Search />
         <S.SearchButton style={{ width: 50 }} onClick={handleButtonClick} icon={<SearchOutlined />} />
       </S.SearchWrapper>
-
       <Content content={searchValue} loading={isLoading} favorite={false} />
     </>
   );

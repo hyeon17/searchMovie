@@ -6,8 +6,16 @@ import Modal from '@/components/Modal';
 import Pagination from '@/components/Pagination';
 import FavoriteResult from '@/components/Content/favoriteResult';
 import Container from '@/components/Content/containder';
+import { IMovieResponse } from '@/types/searchMovie';
 
-function Content({ content, loading, favorite, item }: any) {
+interface IContentProps {
+  content: IMovieResponse;
+  loading?: boolean;
+  favorite: boolean;
+  item?: boolean;
+}
+
+function Content({ content, loading, favorite, item }: IContentProps) {
   const { isOpen } = useModalStore();
 
   return (

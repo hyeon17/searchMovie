@@ -1,15 +1,16 @@
 import Content from '@/components/Content';
 import MetaTag from '@/components/MetaTag';
+import { IFavoriteMovie } from '@/types/searchMovie';
 import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
 function FavoritePage() {
   const location = useLocation();
-  const [content, setContent] = useState<any[]>([]);
+  const [content, setContent] = useState<any>([]);
   const itemList = JSON.parse(localStorage.getItem('fid') || '[]');
   const items: any[] = [];
 
-  itemList.map((item: any) => {
+  itemList.map((item: IFavoriteMovie) => {
     items.push(item);
   });
 
