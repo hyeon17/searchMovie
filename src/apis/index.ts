@@ -1,31 +1,21 @@
-import axios from 'axios';
-import { useQuery } from '@tanstack/react-query';
-import { AxiosError, AxiosResponse } from 'axios';
+import axios, { AxiosError } from 'axios';
 
-export const useSearchMovie = (title: string, type?: string, year?: number | string, page?: number) => {
-  const queryKey = ['movies'];
-  const queryFn = async () => {
+export const searchMovie = async (title: string, type?: string, year?: number | string, page?: number) => {
+  try {
     const url = `${import.meta.env.VITE_APP_BASE_URL}&s=${title}&type=${type}&y=${year}&page=${page}`;
-    const response = await axios.get<AxiosResponse<any>>(url);
-    return response;
-  };
-
-  return useQuery<AxiosResponse<any>, AxiosError>({
-    queryKey,
-    queryFn,
-  });
+    const response = await axios.get(url);
+    return response.data;
+  } catch (error: any) {
+    throw new AxiosError(error);
+  }
 };
 
-export const useSearchMovieId = (id: number) => {
-  const queryKey = ['movieId'];
-  const queryFn = async () => {
+export const searchMovieId = async (id: string) => {
+  try {
     const url = `${import.meta.env.VITE_APP_BASE_URL}&i=${id}`;
-    const response = await axios.get<AxiosResponse<any>>(url);
-    return response;
-  };
-
-  return useQuery<AxiosResponse<any>, AxiosError>({
-    queryKey,
-    queryFn,
-  });
+    const response = await axios.get(url);
+    return response.data;
+  } catch (error: any) {
+    throw new AxiosError(error);
+  }
 };
